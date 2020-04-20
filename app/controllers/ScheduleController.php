@@ -5,11 +5,12 @@ namespace app\controllers;
 
 
 use app\base\BaseController;
+use base\View\View;
 
 class ScheduleController extends BaseController
 {
     public function index()
     {
-        echo "schedule";
+        new View("site/schedule/index", $this->page);
     }
 }

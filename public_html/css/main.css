@@ -31,6 +31,11 @@ input {
     width: 80%;
 }
 
+.icons-100 {
+    width: 100%;
+    text-align: center;
+}
+
 .color-red {
     color: red;
 }
@@ -39,4 +44,32 @@ input {
     -ms-flex: 0 0 2%;
     flex: 0 0 2%;
     max-width: 2%;
+}
+
+.content {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.vh-80 {
+    height: 80vh;
+}
+
+.block {
+    border: 1px solid #444446;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #333336;
+}
+
+.block-3 {
+    width: 30%;
+}
+
+.block-top {
+    height: 40px;
+}
+
+.width-25 {
+    width: 25px;
 }

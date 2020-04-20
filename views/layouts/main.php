@@ -38,9 +38,11 @@ $path = new base\routing\Path();
             ?>
         </div>
 
-        <footer>
-            <?php include $page->getFooter(); ?>
-        </footer>
+        <?php if (file_get_contents($page->getFooter())) : ?>
+            <footer>
+                <?php include $page->getFooter(); ?>
+            </footer>
+        <?php endif; ?>
     </div>
 </body>
 

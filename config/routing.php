@@ -22,6 +22,12 @@ $routing->add('GET', '/forgot/', AuthController::class, 'forgot');
 $routing->add('GET', '/schedule/', ScheduleController::class, 'index', true);
 
 $routing->add('GET', '/faculties/', FacultiesController::class, 'index', true);
+$routing->add('GET', '/faculties/{id}', FacultiesController::class, 'item', true);
+$routing->add('GET', '/faculties/add/', FacultiesController::class, 'form', true);
+$routing->add('POST', '/faculties/add/', FacultiesController::class, 'add', true);
+$routing->add('GET', '/faculties/edit/{id}', FacultiesController::class, 'form', true);
+$routing->add('POST', '/faculties/edit/', FacultiesController::class, 'edit', true);
+$routing->add('GET', '/faculties/delete/', FacultiesController::class, 'delete', true);
 
 $routing->add('GET', '/directions/', DirectionsController::class, 'index', true);
 
