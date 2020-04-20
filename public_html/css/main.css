@@ -1,0 +1,42 @@
+body {
+    background-color: #222226;
+    color: #ffffff;
+}
+
+input {
+    background-color: #333336;
+    color: #ffffff;
+}
+
+.form-control, .form-control:active, .form-control:hover, .form-control:focus {
+    border: 1px solid #444446;
+    background-color: #333336;
+    color: #ffffff;
+}
+
+.input-group-text {
+    background-color: #444446;
+    border: 1px solid #444446;
+}
+
+.bg-mydark {
+    background-color: #333336;
+}
+
+.auth {
+    min-width: 310px;
+}
+
+.icons {
+    width: 80%;
+}
+
+.color-red {
+    color: red;
+}
+
+.col-0 {
+    -ms-flex: 0 0 2%;
+    flex: 0 0 2%;
+    max-width: 2%;
+}
