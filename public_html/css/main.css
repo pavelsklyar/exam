@@ -8,6 +8,15 @@ input {
     color: #ffffff;
 }
 
+select {
+    background-color: #333336;
+    color: #ffffff;
+}
+
+option {
+    color: #ffffff;
+}
+
 .form-control, .form-control:active, .form-control:hover, .form-control:focus {
     border: 1px solid #444446;
     background-color: #333336;
@@ -17,6 +26,25 @@ input {
 .input-group-text {
     background-color: #444446;
     border: 1px solid #444446;
+}
+
+.input-select {
+    border: 1px solid #444446;
+    background-color: #333336;
+    color: #ffffff;
+}
+
+.custom-select, .custom-select:active, .custom-select:hover, .custom-select:focus {
+    color: #ffffff;
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='rgb(108, 117, 125)' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;
+    background-color: #333336;
+}
+
+.custom-option {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 5px;
 }
 
 .bg-mydark {

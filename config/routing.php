@@ -30,6 +30,12 @@ $routing->add('POST', '/faculties/edit/', FacultiesController::class, 'edit', tr
 $routing->add('GET', '/faculties/delete/', FacultiesController::class, 'delete', true);
 
 $routing->add('GET', '/directions/', DirectionsController::class, 'index', true);
+$routing->add('GET', '/directions/{id}', DirectionsController::class, 'item', true);
+$routing->add('GET', '/directions/add/', DirectionsController::class, 'form', true);
+$routing->add('POST', '/directions/add/', DirectionsController::class, 'add', true);
+$routing->add('GET', '/directions/edit/{id}', DirectionsController::class, 'form', true);
+$routing->add('POST', '/directions/edit/', DirectionsController::class, 'edit', true);
+$routing->add('GET', '/directions/delete/', DirectionsController::class, 'delete', true);
 
 $routing->add('GET', '/departments/', DepartmentsController::class, 'index', true);
 

@@ -40,9 +40,7 @@ class FacultiesComponent extends BaseComponent
 
         $faculty = new Faculty($name);
 
-        $add = $this->table->insert($faculty);
-
-        if ($add) {
+        if ($add = $this->table->insert($faculty)) {
             return true;
         }
         else {
@@ -66,7 +64,15 @@ class FacultiesComponent extends BaseComponent
     {
         $this->checkTable();
 
-        return $this->table->delete(['id' => $id]);
+        $this->table->beginTransaction();
+        if ($delete = $this->table->delete(['id' => $id])) {
+            $this->table->commit();
+            return true;
+        }
+        else {
+            $this->table->rollBack();
+            return "[" . $delete[0] . "] " . $delete[2];
+        }
     }
 
     private function checkTable()
