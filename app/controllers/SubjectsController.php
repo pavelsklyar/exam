@@ -4,7 +4,106 @@
 namespace app\controllers;
 
 
-class SubjectsController
-{
+use app\base\BaseController;
+use app\components\DepartmentsComponent;
+use app\components\SubjectsComponent;
+use base\Page;
+use base\View\View;
 
+class SubjectsController extends BaseController
+{
+    /**
+     * @var SubjectsComponent
+     */
+    private $component;
+
+    public function __construct(Page &$page, $params)
+    {
+        parent::__construct($page, $params);
+
+        $this->setComponent();
+    }
+
+    public function index()
+    {
+        $subjects = $this->component->getAll();
+
+        new View("site/subjects/index", $this->page, ['subjects' => $subjects]);
+    }
+
+    public function item()
+    {
+
+    }
+
+    public function form()
+    {
+        $departments = $this->getDepartments();
+
+        if (!empty($this->params)) {
+            $data = $this->component->getById($this->params['id']);
+            new View("site/subjects/form", $this->page, ['departments' => $departments, 'data' => $data, 'edit' => true]);
+        }
+        else {
+            new View("site/subjects/form", $this->page, ['departments' => $departments]);
+        }
+    }
+
+    public function add()
+    {
+        $post = $this->page->getPost();
+
+        $name = $post['name'];
+        $department_id = $post['department_id'];
+
+        $add = $this->component->add($name, $department_id);
+
+        if ($add === true) {
+            header("Location: /subjects/");
+        }
+        else {
+            $departments = $this->getDepartments();
+            new View("site/subjects/form", $this->page, ['departments' => $departments, 'data' => $post, 'error' => $add]);
+        }
+    }
+
+    public function edit()
+    {
+        $post = $this->page->getPost();
+
+        $id = $post['id'];
+        $name = $post['name'];
+        $department_id = $post['department_id'];
+
+        $edit = $this->component->edit($id, $name, $department_id);
+
+        if ($edit === true) {
+            header("Location: /subjects/");
+        }
+        else {
+            $departments = $this->getDepartments();
+            new View("site/subjects/form", $this->page, ['departments' => $departments, 'data' => $post, 'edit' => true, 'error' => $edit]);
+        }
+    }
+
+    public function delete()
+    {
+        $get = $this->page->getGet();
+        $id = $get['id'];
+
+        if ($this->component->delete($id)) {
+            header("Location: /subjects/");
+        }
+    }
+
+    private function getDepartments()
+    {
+        $departmentsComponent = new DepartmentsComponent();
+        return $departmentsComponent->getAll();
+    }
+
+    private function setComponent()
+    {
+        $this->component = new SubjectsComponent();
+    }
 }

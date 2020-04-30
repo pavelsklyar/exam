@@ -90,8 +90,12 @@ option {
     background-color: #333336;
 }
 
+.block-big {
+    min-height: 220px;
+}
+
 .block-3 {
-    width: 30%;
+    width: 32%;
 }
 
 .block-top {

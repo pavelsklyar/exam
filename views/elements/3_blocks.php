@@ -8,7 +8,7 @@
 
 ?>
 
-<div class="block block-3 mb-3 d-flex flex-column justify-content-between">
+<div class="block block-big block-3 mb-3 d-flex flex-column justify-content-between">
     <div class="block-top d-flex justify-content-between">
 
         <div class="width-25 m-1">

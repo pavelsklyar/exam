@@ -38,8 +38,20 @@ $routing->add('POST', '/directions/edit/', DirectionsController::class, 'edit', 
 $routing->add('GET', '/directions/delete/', DirectionsController::class, 'delete', true);
 
 $routing->add('GET', '/departments/', DepartmentsController::class, 'index', true);
+$routing->add('GET', '/departments/{id}', DepartmentsController::class, 'item', true);
+$routing->add('GET', '/departments/add/', DepartmentsController::class, 'form', true);
+$routing->add('POST', '/departments/add/', DepartmentsController::class, 'add', true);
+$routing->add('GET', '/departments/edit/{id}', DepartmentsController::class, 'form', true);
+$routing->add('POST', '/departments/edit/', DepartmentsController::class, 'edit', true);
+$routing->add('GET', '/departments/delete/', DepartmentsController::class, 'delete', true);
 
 $routing->add('GET', '/subjects/', SubjectsController::class, 'index', true);
+$routing->add('GET', '/subjects/{id}', SubjectsController::class, 'item', true);
+$routing->add('GET', '/subjects/add/', SubjectsController::class, 'form', true);
+$routing->add('POST', '/subjects/add/', SubjectsController::class, 'add', true);
+$routing->add('GET', '/subjects/edit/{id}', SubjectsController::class, 'form', true);
+$routing->add('POST', '/subjects/edit/', SubjectsController::class, 'edit', true);
+$routing->add('GET', '/subjects/delete/', SubjectsController::class, 'delete', true);
 
 $routing->add('GET', '/teachers/', TeachersController::class, 'index', true);
 
