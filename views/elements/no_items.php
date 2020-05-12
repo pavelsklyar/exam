@@ -20,6 +20,12 @@ switch ($page_name) {
     case "groups":
         $page_name = "Групп";
         break;
+    case "classrooms":
+        $page_name = "Аудиторий";
+        break;
+    case "users":
+        $page_name = "Пользователей";
+        break;
 }
 ?>
 

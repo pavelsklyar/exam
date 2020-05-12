@@ -81,16 +81,67 @@ class AuthComponent extends Component
      *
      * @param $email
      * @param $password
+     * @param $passwordTwice
+     * @param $name
+     * @param $surname
+     * @param $fathername
+     * @param $status_id
      * @return int
      */
-    public function register($email, $password)
+    public function register($email, $password, $passwordTwice, $name, $surname, $fathername, $status_id)
     {
-        $salt = $this->generateSalt();
-        $hashPassword = $this->generateHashPassword($password, $salt);
+        if ($password === $passwordTwice) {
+            $this->usersTable->beginTransaction();
+            $statusComponent = new StatusComponent();
 
-        $user = new User($email, $hashPassword, $salt);
+            if (!empty($statusComponent->getById($status_id))) {
+                $salt = $this->generateSalt();
+                $hashPassword = $this->generateHashPassword($password, $salt);
 
-        return $this->usersTable->insert($user);
+                $user = new User($email, $hashPassword, $salt, $name, $surname, $fathername, $status_id);
+
+                if ($add = $this->usersTable->insert($user)) {
+                    $this->usersTable->commit();
+                    return true;
+                } else {
+                    $this->usersTable->rollBack();
+                    return "[" . $add[0] . "] " . $add[2];
+                }
+            } else {
+                $this->usersTable->rollBack();
+                return "Такого статуса нет!";
+            }
+        }
+        else {
+            return "Пароли не совпадают!";
+        }
+    }
+
+    public function update($id, $email, $password, $passwordTwice, $name, $surname, $fathername, $status_id)
+    {
+        if ($password === $passwordTwice) {
+            $this->usersTable->beginTransaction();
+            $statusComponent = new StatusComponent();
+
+            if (!empty($statusComponent->getById($status_id))) {
+                $salt = $this->generateSalt();
+                $hashPassword = $this->generateHashPassword($password, $salt);
+
+                if ($edit = $this->usersTable->update(['email' => $email, 'password' => $hashPassword, 'salt' => $salt, 'name' => $name, 'surname' => $surname, 'fathername' => $fathername], ['id' => $id])) {
+                    $this->usersTable->commit();
+                    return true;
+                } else {
+                    $this->usersTable->rollBack();
+                    return "[" . $edit[0] . "] " . $edit[2];
+                }
+            } else {
+                $this->usersTable->rollBack();
+                return "Такого статуса нет!";
+            }
+        }
+        else {
+            return "Пароли не совпадают!";
+        }
     }
 
     /**

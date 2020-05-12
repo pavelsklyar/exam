@@ -11,7 +11,7 @@ use app\model\Department;
 class DepartmentsComponent extends BaseComponent
 {
     /** @var DepartmentsTable */
-    private $table;
+    protected $table;
 
     public function getAll()
     {
@@ -58,22 +58,7 @@ class DepartmentsComponent extends BaseComponent
         }
     }
 
-    public function delete($id)
-    {
-        $this->checkTable();
-
-        $this->table->beginTransaction();
-        if ($delete = $this->table->delete(['id' => $id])) {
-            $this->table->commit();
-            return true;
-        }
-        else {
-            $this->table->rollBack();
-            return "[" . $delete[0] . "] " . $delete[2];
-        }
-    }
-
-    private function checkTable()
+    protected function checkTable()
     {
         if (is_null($this->table)) {
             $this->table = new DepartmentsTable();

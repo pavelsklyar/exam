@@ -28,6 +28,12 @@
         </div>
     </div>
     <div>
-        <p class="h4"><?= $item['name'] ?></p>
+        <p class="h4">
+            <?php if (isset($item['name'])) : ?>
+                <?= $item['name'] ?>
+            <?php elseif (isset($item['number'])) : ?>
+                <?= $item['number'] ?>
+            <?php endif; ?>
+        </p>
     </div>
 </div>

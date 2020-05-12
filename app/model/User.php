@@ -29,7 +29,7 @@ class User extends Model
      * @param $status_id
      * @param $auth_token
      */
-    public function __construct($email, $password, $salt, $name, $surname, $fathername, $status_id, $auth_token)
+    public function __construct($email, $password, $salt, $name, $surname, $fathername, $status_id, $auth_token = null)
     {
         $this->email = $email;
         $this->password = $password;

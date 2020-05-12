@@ -12,7 +12,7 @@ use app\model\Direction;
 class DirectionsComponent extends BaseComponent
 {
     /** @var DirectionsTable */
-    private $table;
+    protected $table;
 
     public function getAll()
     {
@@ -107,22 +107,7 @@ class DirectionsComponent extends BaseComponent
         }
     }
 
-    public function delete($id)
-    {
-        $this->setTable();
-
-        $this->table->beginTransaction();
-        if ($delete = $this->table->delete(['id' => $id])) {
-            $this->table->commit();
-            return true;
-        }
-        else {
-            $this->table->rollBack();
-            return "[" . $delete[0] . "] " . $delete[2];
-        }
-    }
-
-    private function setTable()
+    protected function setTable()
     {
         if (is_null($this->table)) {
             $this->table = new DirectionsTable();

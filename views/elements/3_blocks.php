@@ -37,7 +37,11 @@
     </div>
 
     <div>
-        <p class="h4"><?= $item['name'] ?></p>
+        <p class="h4">
+            <?php if (isset($item['surname'])) { echo $item['surname'] . " "; } ?>
+            <?= $item['name'] . " " ?>
+            <?php if (isset($item['fathername'])) { echo $item['fathername']; } ?>
+        </p>
     </div>
 
     <div class="block-bottom">

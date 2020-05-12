@@ -54,9 +54,33 @@ $routing->add('POST', '/subjects/edit/', SubjectsController::class, 'edit', true
 $routing->add('GET', '/subjects/delete/', SubjectsController::class, 'delete', true);
 
 $routing->add('GET', '/teachers/', TeachersController::class, 'index', true);
+$routing->add('GET', '/teachers/{id}', TeachersController::class, 'item', true);
+$routing->add('GET', '/teachers/add/', TeachersController::class, 'form', true);
+$routing->add('POST', '/teachers/add/', TeachersController::class, 'add', true);
+$routing->add('GET', '/teachers/edit/{id}', TeachersController::class, 'form', true);
+$routing->add('POST', '/teachers/edit/', TeachersController::class, 'edit', true);
+$routing->add('GET', '/teachers/delete/', TeachersController::class, 'delete', true);
 
 $routing->add('GET', '/groups/', GroupsController::class, 'index', true);
+$routing->add('GET', '/groups/{id}', GroupsController::class, 'item', true);
+$routing->add('GET', '/groups/add/', GroupsController::class, 'form', true);
+$routing->add('POST', '/groups/add/', GroupsController::class, 'add', true);
+$routing->add('GET', '/groups/edit/{id}', GroupsController::class, 'form', true);
+$routing->add('POST', '/groups/edit/', GroupsController::class, 'edit', true);
+$routing->add('GET', '/groups/delete/', GroupsController::class, 'delete', true);
 
 $routing->add('GET', '/classrooms/', ClassroomsController::class, 'index', true);
+$routing->add('GET', '/classrooms/{id}', ClassroomsController::class, 'item', true);
+$routing->add('GET', '/classrooms/add/', ClassroomsController::class, 'form', true);
+$routing->add('POST', '/classrooms/add/', ClassroomsController::class, 'add', true);
+$routing->add('GET', '/classrooms/edit/{id}', ClassroomsController::class, 'form', true);
+$routing->add('POST', '/classrooms/edit/', ClassroomsController::class, 'edit', true);
+$routing->add('GET', '/classrooms/delete/', ClassroomsController::class, 'delete', true);
 
 $routing->add('GET', '/users/', UsersController::class, 'index', true);
+$routing->add('GET', '/users/{id}', UsersController::class, 'item', true);
+$routing->add('GET', '/users/add/', UsersController::class, 'form', true);
+$routing->add('POST', '/users/add/', UsersController::class, 'add', true);
+$routing->add('GET', '/users/edit/{id}', UsersController::class, 'form', true);
+$routing->add('POST', '/users/edit/', UsersController::class, 'edit', true);
+$routing->add('GET', '/users/delete/', UsersController::class, 'delete', true);
