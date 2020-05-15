@@ -37,6 +37,13 @@ class GroupsComponent extends BaseComponent
         }
     }
 
+    public function search($search)
+    {
+        $this->setTable();
+
+        return $this->table->search($search);
+    }
+
     public function add($number, $studentsNumber)
     {
         $this->setTable();

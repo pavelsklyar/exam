@@ -12,7 +12,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "errcode/framework": "^0.6.0.1",
+    "errcode/framework": "dev-master",
     "erusev/parsedown": "~1.7.0"
   }
 }

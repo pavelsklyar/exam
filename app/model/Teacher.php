@@ -12,6 +12,7 @@ class Teacher extends Model
     public $name;
     public $surname;
     public $fathername;
+    public $full_name;
     public $department_id;
 
     /**
@@ -27,6 +28,8 @@ class Teacher extends Model
         $this->surname = $surname;
         $this->fathername = $fathername;
         $this->department_id = $department_id;
+
+        $this->full_name = $surname . " " . $name . " " . $fathername;
 
         $this->auto_increment = ['id'];
     }

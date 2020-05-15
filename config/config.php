@@ -25,6 +25,7 @@ return [
     'scripts' => [
         'bootstrap.js',
         'bootstrap.bundle.js',
+        'search.js'
     ],
 
     /** Ссылка на favicon относительно public_html/ */

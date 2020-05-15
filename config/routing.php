@@ -20,6 +20,17 @@ $routing->add('POST', '/', AuthController::class, 'auth');
 $routing->add('GET', '/forgot/', AuthController::class, 'forgot');
 
 $routing->add('GET', '/schedule/', ScheduleController::class, 'index', true);
+$routing->add('GET', '/schedule/groups/', ScheduleController::class, 'groups', true);
+$routing->add('POST', '/schedule/groups/', ScheduleController::class, 'groupsSchedule', true);
+$routing->add('GET', '/schedule/teachers/', ScheduleController::class, 'teachers', true);
+$routing->add('POST', '/schedule/teachers/', ScheduleController::class, 'teachersSchedule', true);
+$routing->add('POST', '/schedule/groups/search/', ScheduleController::class, 'groupsSearch', true);
+$routing->add('POST', '/schedule/teachers/search/', ScheduleController::class, 'teachersSearch', true);
+$routing->add('GET', '/schedule/add/', ScheduleController::class, 'form', true);
+$routing->add('POST', '/schedule/add/', ScheduleController::class, 'add', true);
+$routing->add('GET', '/schedule/edit/{id}', ScheduleController::class, 'form', true);
+$routing->add('POST', '/schedule/edit/', ScheduleController::class, 'edit', true);
+$routing->add('GET', '/schedule/delete/', ScheduleController::class, 'delete', true);
 
 $routing->add('GET', '/faculties/', FacultiesController::class, 'index', true);
 $routing->add('GET', '/faculties/{id}', FacultiesController::class, 'item', true);

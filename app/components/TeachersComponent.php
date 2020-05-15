@@ -46,6 +46,13 @@ class TeachersComponent extends BaseComponent
         }
     }
 
+    public function search($search)
+    {
+        $this->setTable();
+
+        return $this->table->search($search);
+    }
+
     public function getByDepartmentId($department_id)
     {
         $this->setTable();
@@ -92,7 +99,7 @@ class TeachersComponent extends BaseComponent
         $this->table->beginTransaction();
         if (!empty($departmentsTable->get("*", ['id' => $department_id]))) {
 
-            if ($edit = $this->table->update(['name' => $name, 'surname' => $surname, 'fathername' => $fathername, "department_id" => $department_id], ['id' => $id])) {
+            if ($edit = $this->table->update(['name' => $name, 'surname' => $surname, 'fathername' => $fathername, 'full_name' => $surname . " " . $name . " " . $fathername, "department_id" => $department_id], ['id' => $id])) {
                 $this->table->commit();
                 return true;
             }
