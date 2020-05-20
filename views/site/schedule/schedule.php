@@ -3,6 +3,7 @@
 /**
  * @var $type string
  * @var $schedule array
+ * @var $number
  */
 
 if ($type === 'groups') {
@@ -10,7 +11,7 @@ if ($type === 'groups') {
         $value = $schedule[0]['group_number'];
     }
     else {
-        $value = '';
+        $value = $number;
     }
 }
 else {
@@ -18,18 +19,21 @@ else {
         $value = $schedule[0]['full_name'];
     }
     else {
-        $value = '';
+        $value = $number;
     }
 }
 
 ?>
 
+<?php if (is_array($schedule)) : ?>
 <?php new \base\View\Element("schedule_menu", ['type' => $type, 'value' => $value]) ?>
 
-<?php if (is_array($schedule)) : ?>
-    <div class="d-flex flex-row flex-wrap justify-content-between">
-        <?php foreach ($schedule as $item) : ?>
-            <?php new \base\View\Element("schedule", ['item' => $item]); ?>
-        <?php endforeach; ?>
-    </div>
+<div class="d-flex flex-row flex-wrap justify-content-between">
+    <?php foreach ($schedule as $item) : ?>
+        <?php new \base\View\Element("schedule", ['item' => $item]); ?>
+    <?php endforeach; ?>
+</div>
+<?php else : ?>
+    <?php new \base\View\Element("schedule_menu", ['type' => $type, 'value' => $value]) ?>
+<p class="text-center mt-3">Расписания пока нет</p>
 <?php endif; ?>

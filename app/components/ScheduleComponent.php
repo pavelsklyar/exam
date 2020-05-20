@@ -52,6 +52,10 @@ class ScheduleComponent extends BaseComponent
         $groupsTable = new GroupsTable();
 
         if (!empty($schedule = $groupsTable->schedule($number))) {
+            if (is_null($schedule[0]['id'])) {
+                return null;
+            }
+
             foreach ($schedule as $key => $item) {
                 $date = strtotime($item['date']);
                 $timeStart = strtotime($item['time_start']);

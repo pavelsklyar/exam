@@ -102,7 +102,7 @@ class ScheduleController extends BaseController
         $number = $post['search'];
 
         $schedule = $this->component->groups($number);
-        new View("site/schedule/schedule", $this->page, ['type' => "groups", 'schedule' => $schedule]);
+        new View("site/schedule/schedule", $this->page, ['type' => "groups", 'schedule' => $schedule, 'number' => $number]);
     }
 
     public function teachers()
@@ -116,7 +116,7 @@ class ScheduleController extends BaseController
         $name = $post['search'];
 
         $schedule = $this->component->teachers($name);
-        new View("site/schedule/schedule", $this->page, ['type' => "teachers", 'schedule' => $schedule]);
+        new View("site/schedule/schedule", $this->page, ['type' => "teachers", 'schedule' => $schedule, 'number' => $name]);
     }
 
     public function form()

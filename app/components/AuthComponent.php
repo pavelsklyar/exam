@@ -162,6 +162,7 @@ class AuthComponent extends Component
 
             App::$session->user->setId(null);
             App::$session->user->setEmail(null);
+            App::$session->user->set("status", null);
 
             return true;
         }

@@ -17,7 +17,7 @@ $routing = new Routing();
 
 $routing->add('GET', '/', AuthController::class, 'form');
 $routing->add('POST', '/', AuthController::class, 'auth');
-$routing->add('GET', '/forgot/', AuthController::class, 'forgot');
+$routing->add('GET', '/logout/', AuthController::class, 'logout');
 
 $routing->add('GET', '/schedule/', ScheduleController::class, 'index', true);
 $routing->add('GET', '/schedule/groups/', ScheduleController::class, 'groups', true);

@@ -20,7 +20,7 @@
 </div>
 
 <?php if (isset($type)) : ?>
-    <div class="d-flex justify-content-between col-8 ml-auto mr-auto mt-4 mb-3 search_box">
+    <div class="d-flex justify-content-between col-8 ml-auto mr-auto mt-4 mb-5 search_box">
         <form class="col-12" name="search_form" method="post" action="
     <?php if ($type === "groups") : ?>
         /schedule/groups/

@@ -7,12 +7,20 @@ namespace app\controllers;
 use app\base\BaseController;
 use app\components\AuthComponent;
 use base\App;
+use base\Page;
 use base\View\View;
 
 class AuthController extends BaseController
 {
     /** @var AuthComponent */
     private $component;
+
+    public function __construct(Page &$page, $params)
+    {
+        parent::__construct($page, $params);
+
+        $this->component = new AuthComponent();
+    }
 
     public function form()
     {
@@ -31,7 +39,6 @@ class AuthController extends BaseController
         $password = $post['password'];
         $remember = $post['remember'];
 
-        $this->component = new AuthComponent();
         $auth = $this->component->auth($email, $password, $remember);
 
         if ($auth) {
@@ -45,8 +52,12 @@ class AuthController extends BaseController
         }
     }
 
-    public function forgot()
+    public function logout()
     {
-        $this->component = new AuthComponent();
+        if (App::$session->user->isAuth()) {
+            if ($this->component->logout()) {
+                header("Location: /");
+            }
+        }
     }
 }

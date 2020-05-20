@@ -41,9 +41,6 @@ $isset = isset($form);
                 <div class="d-flex flex-row flex-wrap">
                     <input type="checkbox" name="remember" checked id="inlineFormCheck">
                     <label for="inlineFormCheck" class="small m-1">Запомнить</label>
-                    <p class="small m-1">
-                        <a href="/forgot/" class="text-muted">Забыли пароль?</a>
-                    </p>
                 </div>
                 <button type="submit" class="btn btn-primary">Войти</button>
             </div>
